@@ -5,11 +5,8 @@ import { useCurrentUser } from "@/stores/current-user";
 import { Forward, Heart, MessageCircleMore } from "lucide-react";
 import { FEED_POST_REACTIONS } from "@/features/feed/constants";
 import Image from "next/image";
-import { Tooltip } from "react-tooltip";
 import { useMutation } from "@tanstack/react-query";
 import { postReactionMutationOptions } from "@/features/feed/mutations";
-import { useState } from "react";
-import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import { AxiosError } from "axios";
 import { ReactionButton } from "./post-like-button";
@@ -24,7 +21,6 @@ export const FeedPostFooter = ({
   setIsCommenting: (isCommenting: boolean) => void;
 }) => {
   const { user } = useCurrentUser();
-  const [isOpen, setIsOpen] = useState(false);
   const { mutateAsync: postReaction, isPending: isPostingReaction } =
     useMutation(postReactionMutationOptions);
 
@@ -40,7 +36,6 @@ export const FeedPostFooter = ({
 
   const handleReact = async (reactionType: FeedReactionType | null) => {
     try {
-      setIsOpen(false);
       const res = await postReaction({ postId: post.id, reactionType });
       if (!res.success) {
         toast.error(res.message);

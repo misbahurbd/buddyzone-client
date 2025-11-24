@@ -1,5 +1,7 @@
 import { RegisterForm } from "@/features/auth/components";
+import { ScaleLoader as Spinner } from "react-spinners";
 import Image from "next/image";
+import { Suspense } from "react";
 
 const RegisterPage = () => {
   return (
@@ -15,7 +17,9 @@ const RegisterPage = () => {
         />
       </div>
       <div className="w-full lg:w-4/12">
-        <RegisterForm />
+        <Suspense fallback={<Spinner color="#1890ff" />}>
+          <RegisterForm />
+        </Suspense>
       </div>
     </div>
   );

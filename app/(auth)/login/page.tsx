@@ -1,5 +1,7 @@
 import { LoginForm } from "@/features/auth/components";
+import { ScaleLoader as Spinner } from "react-spinners";
 import Image from "next/image";
+import { Suspense } from "react";
 
 const LoginPage = () => {
   return (
@@ -15,7 +17,9 @@ const LoginPage = () => {
         />
       </div>
       <div className="w-full lg:w-4/12">
-        <LoginForm />
+        <Suspense fallback={<Spinner color="#000" />}>
+          <LoginForm />
+        </Suspense>
       </div>
     </div>
   );

@@ -12,7 +12,6 @@ import { toast } from "sonner";
 import { ScaleLoader as Spinner } from "react-spinners";
 import Image from "next/image";
 import {
-  Calendar1,
   CalendarDays,
   FileText,
   ImageIcon,
@@ -178,6 +177,8 @@ export const CreatePostBlock = () => {
               type="file"
               hidden
               multiple
+              accept="image/*"
+              max={10}
               onChange={(e) => {
                 if (e.target.files) {
                   handleFileUpload(Array.from(e.target.files));
