@@ -1,5 +1,5 @@
 import { mutationOptions, InfiniteData } from "@tanstack/react-query";
-import { postReaction, FeedPost } from "@/features/feed/actions";
+import { commentReaction, FeedPost } from "@/features/feed/actions";
 import { getQueryClient } from "@/lib/get-query-client";
 
 type FeedPage = {
@@ -9,8 +9,8 @@ type FeedPage = {
   };
 };
 
-export const postReactionMutationOptions = mutationOptions({
-  mutationFn: postReaction,
+export const commentReactionMutationOptions = mutationOptions({
+  mutationFn: commentReaction,
   onSuccess: (data) => {
     if (data.success) {
       getQueryClient().setQueryData<InfiniteData<FeedPage>>(

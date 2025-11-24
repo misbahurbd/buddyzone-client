@@ -1,19 +1,22 @@
 "use server";
 
 import { api, ApiResponse } from "@/lib/axios";
-import { FeedPost, FeedReactionType } from ".";
 import { AxiosError } from "axios";
+import { FeedPost } from "./posts.action";
 
-export const postReaction = async ({
+export const postComment = async ({
   postId,
-  reactionType,
+  comment,
+  parentCommentId,
 }: {
   postId: string;
-  reactionType: FeedReactionType | null;
+  comment: string;
+  parentCommentId: string | null;
 }): Promise<ApiResponse<FeedPost>> => {
   try {
-    const res = await api.post(`/api/v1/posts/${postId}/react`, {
-      reactionType,
+    const res = await api.post(`/api/v1/posts/${postId}/comment`, {
+      comment,
+      parentCommentId,
     });
 
     return {

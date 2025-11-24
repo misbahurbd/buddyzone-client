@@ -27,7 +27,9 @@ export interface FeedReaction {
 
 export interface FeedComment {
   id: string;
+  parentId: string | null;
   content: string;
+  createdAt: string;
   author: Author;
   reactions: FeedReaction[];
   replies: FeedComment[];
