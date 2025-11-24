@@ -68,3 +68,14 @@ body {
   color: var(--foreground);
   font-family: Poppins, Helvetica, sans-serif;
 }
+
+@utility hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  overflow: -moz-scrollbars-none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

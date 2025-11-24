@@ -12,3 +12,5 @@ export * from "./group";
 export * from "./bookmark";
 export * from "./video";
 export * from "./message";
+export * from "./logout";
+export * from "./help";

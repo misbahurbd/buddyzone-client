@@ -3,7 +3,11 @@ import {
   MessageIcon,
   HomeIcon,
   NotificationIcon,
+  SettingIcon,
+  HelpIcon,
+  LogoutIcon,
 } from "@/assets/icons";
+import { logout } from "@/features/auth/actions";
 
 export const DESKTOP_NAV_MENU = [
   {
@@ -27,5 +31,18 @@ export const DESKTOP_NAV_MENU = [
     href: "#message",
     icon: MessageIcon,
     count: 2,
+  },
+];
+
+export const USER_NAV_MENU = [
+  {
+    label: "Settings",
+    href: "/settings",
+    icon: SettingIcon,
+  },
+  {
+    label: "Help & Support",
+    href: "/help-support",
+    icon: HelpIcon,
   },
 ];

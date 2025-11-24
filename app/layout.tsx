@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
+import { QueryProvider } from "@/components/providers/query-provider";
+import { CurrentUserProvider } from "@/components/providers/current-user-provider";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -47,7 +49,9 @@ export default function RootLayout({
         className={`${poppins.variable} ${geistMono.variable} min-h-screen antialiased`}
       >
         <Toaster richColors position="bottom-right" />
-        {children}
+        <QueryProvider>
+          <CurrentUserProvider>{children}</CurrentUserProvider>
+        </QueryProvider>
       </body>
     </html>
   );
