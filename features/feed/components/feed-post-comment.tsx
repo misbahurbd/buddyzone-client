@@ -3,7 +3,7 @@
 import { AuthorAvatar } from "@/components/shared/author-avatar";
 import { FeedComment, FeedReactionType } from "../actions";
 import Link from "next/link";
-import { cn, formatShortTime } from "@/lib/utils";
+import { formatShortTime } from "@/lib/utils";
 import { Heart, ThumbsUp } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 import { commentReactionMutationOptions } from "../mutations/comment-reaction.mutation";
@@ -13,7 +13,6 @@ import { FEED_POST_REACTIONS } from "../constants";
 import { useCurrentUser } from "@/stores/current-user";
 import Image from "next/image";
 import { ReactionButton } from "./post-like-button";
-import { useState } from "react";
 import { FeedPostCommentInput } from "./feed-post-comment-input";
 
 export const FeedPostComment = ({
@@ -23,8 +22,6 @@ export const FeedPostComment = ({
   postId: string;
   comment: FeedComment;
 }) => {
-  const [isReplying, setIsReplying] = useState(false);
-
   const { mutateAsync: commentReaction, isPending: isCommentingReaction } =
     useMutation(commentReactionMutationOptions);
   const { user } = useCurrentUser();

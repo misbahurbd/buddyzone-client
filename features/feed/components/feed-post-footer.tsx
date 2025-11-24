@@ -57,6 +57,7 @@ export const FeedPostFooter = ({
         uniqueId={post.id}
         onReact={handleReact}
         disabled={isPostingReaction}
+        align="left"
       >
         <button
           onClick={() => handleReact(!!reactedReaction ? null : "LIKE")}

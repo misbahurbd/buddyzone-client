@@ -13,3 +13,6 @@ export * from "./feed-post-footer";
 export * from "./feed-post-header";
 export * from "./post-images";
 export * from "./post-reactions-avatar";
+
+// Create post components
+export * from "./create-post-block";

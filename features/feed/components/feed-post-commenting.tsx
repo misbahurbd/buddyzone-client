@@ -1,7 +1,6 @@
 "use client";
 
 import { FeedComment } from "@/features/feed/actions";
-import { useCurrentUser } from "@/stores/current-user";
 import {
   FeedPostCommentInput,
   FeedPostCommentList,
@@ -16,12 +15,14 @@ export const FeedPostCommenting = ({
   comments: FeedComment[];
   totalComments: number;
 }) => {
-  const { user, isLoading } = useCurrentUser();
-
   return (
     <div className="p-6 flex flex-col gap-3">
       <FeedPostCommentInput postId={postId} parentCommentId={null} />
-      <FeedPostCommentList postId={postId} comments={comments} />
+      <FeedPostCommentList
+        postId={postId}
+        comments={comments}
+        totalComments={totalComments}
+      />
     </div>
   );
 };
