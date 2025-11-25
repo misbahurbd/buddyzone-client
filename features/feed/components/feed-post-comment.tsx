@@ -59,7 +59,7 @@ export const FeedPostComment = ({
       />
       <div className="flex flex-col relative gap-2 bg-[#f6f6f6] p-3 rounded-xl">
         <Link
-          href={`/profile/${comment.author.username}`}
+          href={`/${comment.author.username}`}
           className="text-sm font-semibold text-color6 mb-2"
         >
           {comment.author.firstName} {comment.author.lastName}

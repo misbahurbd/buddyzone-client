@@ -109,7 +109,7 @@ export const UserNav = () => {
               {user.firstName} {user.lastName}
             </p>
             <Link
-              href={`/profile/${user.username}`}
+              href={`/${user.username}`}
               className="text-sm text-color5 hover:opacity-80 transition-all"
             >
               View Profile

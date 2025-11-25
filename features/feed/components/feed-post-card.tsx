@@ -16,7 +16,7 @@ export const FeedPostCard = ({ post }: { post: FeedPost }) => {
   return (
     <article className="flex flex-col bg-bg2 rounded-md">
       <div className="p-6 flex flex-col gap-4">
-        <FeedPostHeader post={post} />
+        <FeedPostHeader post={post} setIsModalOpen={() => setIsModalOpen(true)} />
         <p className="text-color wrap-break-word whitespace-pre-wrap ">
           {post.content}
         </p>

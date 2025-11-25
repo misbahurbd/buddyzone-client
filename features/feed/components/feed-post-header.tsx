@@ -5,7 +5,13 @@ import { getInitials } from "@/lib/utils";
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
 
-export const FeedPostHeader = ({ post }: { post: FeedPost }) => {
+export const FeedPostHeader = ({
+  post,
+  setIsModalOpen,
+}: {
+  post: FeedPost;
+  setIsModalOpen?: () => void;
+}) => {
   return (
     <header className="flex items-center gap-2">
       <div className="flex items-center gap-3">
@@ -25,19 +31,23 @@ export const FeedPostHeader = ({ post }: { post: FeedPost }) => {
           )}
         </div>
         <div>
-          <p className="text-color">
+          <Link
+            href={`/${post.author.username}`}
+            className="hover:underline text-color font-medium hover:text-color5"
+          >
             {post.author.firstName} {post.author.lastName}
-          </p>
+          </Link>
           <div className="flex items-center gap-2">
-            <Link
-              href={`/profile/${post.id}`}
-              className="text-sm text-color/40 hover:text-color transition-all"
+            <button
+              type="button"
+              onClick={() => setIsModalOpen?.()}
+              className="cursor-pointer text-sm text-color/40 hover:text-color transition-all"
             >
               {formatDistanceToNow(new Date(post.createdAt), {
                 addSuffix: true,
                 includeSeconds: true,
               })}
-            </Link>
+            </button>
             <span className="text-sm text-color/40">•</span>
             <span className="text-sm text-color/40 capitalize">
               {post.visibility.toLowerCase()}
