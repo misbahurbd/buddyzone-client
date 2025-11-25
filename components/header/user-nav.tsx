@@ -24,7 +24,7 @@ export const UserNav = () => {
     const res = await logout();
     if (res.success) {
       toast.success(res.message);
-      router.push("/login");
+      router.refresh();
       setIsOpen(false);
       await queryClient.invalidateQueries({ queryKey: ["current-user"] });
     } else {
