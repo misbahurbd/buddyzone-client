@@ -9,7 +9,7 @@ import { FeedPostHeader } from "./feed-post-header";
 import { PostImages } from "./post-images";
 import { FeedPostFooter } from "./feed-post-footer";
 import { PostReactionsAvatar } from "./post-reactions-avatar";
-import { FeedPostCommenting } from "./feed-post-commenting";
+import { PostComments } from "./post-comments";
 
 export const PostModal = ({
   post,
@@ -138,6 +138,7 @@ export const PostModal = ({
               isCommenting={isCommenting}
               setIsCommenting={setIsCommenting}
             />
+            <PostComments postId={post.id} />
           </article>
         </div>
       </div>

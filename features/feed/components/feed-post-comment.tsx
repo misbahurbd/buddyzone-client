@@ -124,15 +124,15 @@ export const FeedPostComment = ({
           {formatShortTime(new Date(comment.createdAt))}
         </span>
       </div>
+      {!comment.parentId && (
+        <FeedPostCommentInput postId={postId} parentCommentId={comment.id} />
+      )}
       {comment.replies?.length > 0 && (
         <div className="flex flex-col gap-2">
           {comment.replies.map((reply) => (
             <FeedPostComment key={reply.id} postId={postId} comment={reply} />
           ))}
         </div>
-      )}
-      {!comment.parentId && (
-        <FeedPostCommentInput postId={postId} parentCommentId={comment.id} />
       )}
     </div>
   );

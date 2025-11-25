@@ -11,7 +11,6 @@ interface FeedPostCommentListProps {
 }
 
 export const FeedPostCommentList = ({
-
   setIsModalOpen,
   postId,
   comments,
