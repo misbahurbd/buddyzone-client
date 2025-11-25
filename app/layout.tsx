@@ -50,7 +50,9 @@ export default function RootLayout({
       >
         <Toaster richColors position="bottom-right" />
         <QueryProvider>
-          <CurrentUserProvider>{children}</CurrentUserProvider>
+          <CurrentUserProvider>
+            {children}
+          </CurrentUserProvider>
         </QueryProvider>
       </body>
     </html>

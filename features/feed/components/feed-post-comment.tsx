@@ -12,7 +12,7 @@ import { AxiosError } from "axios";
 import { FEED_POST_REACTIONS } from "../constants";
 import { useCurrentUser } from "@/stores/current-user";
 import Image from "next/image";
-import { ReactionButton } from "./post-like-button";
+import { ReactionButton } from "./reaction-button";
 import { FeedPostCommentInput } from "./feed-post-comment-input";
 
 export const FeedPostComment = ({

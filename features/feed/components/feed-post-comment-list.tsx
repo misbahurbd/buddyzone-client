@@ -4,12 +4,15 @@ import { FeedComment } from "../actions";
 import { FeedPostComment } from "./feed-post-comment";
 
 interface FeedPostCommentListProps {
+  setIsModalOpen: (isModalOpen: boolean) => void;
   postId: string;
   comments: FeedComment[];
   totalComments: number;
 }
 
 export const FeedPostCommentList = ({
+
+  setIsModalOpen,
   postId,
   comments,
   totalComments,
@@ -19,7 +22,7 @@ export const FeedPostCommentList = ({
       {totalComments > comments.length && (
         <button
           className="text-sm font-medium text-color6 hover:text-color6 transition-all cursor-pointer mr-auto"
-          onClick={() => {}}
+          onClick={() => setIsModalOpen(true)}
         >
           View {totalComments - comments.length} previous comments
         </button>

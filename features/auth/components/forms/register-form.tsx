@@ -9,10 +9,12 @@ import Link from "next/link";
 import { register } from "@/features/auth/actions";
 import { toast } from "sonner";
 import { useRouter, useSearchParams } from "next/navigation";
+import { getQueryClient } from "@/lib/get-query-client";
 
 export const RegisterForm = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const queryClient = getQueryClient();
 
   const form = useForm<RegisterSchema>({
     resolver: zodResolver(registerSchema),
@@ -31,6 +33,7 @@ export const RegisterForm = () => {
     if (res.success) {
       toast.success(res.message);
       form.reset();
+      await queryClient.invalidateQueries({ queryKey: ["current-user"] });
       const next = searchParams.get("next");
       if (next) {
         router.push(next);

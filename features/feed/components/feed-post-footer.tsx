@@ -9,7 +9,7 @@ import { useMutation } from "@tanstack/react-query";
 import { postReactionMutationOptions } from "@/features/feed/mutations";
 import { toast } from "sonner";
 import { AxiosError } from "axios";
-import { ReactionButton } from "./post-like-button";
+import { ReactionButton } from "./reaction-button";
 
 export const FeedPostFooter = ({
   post,

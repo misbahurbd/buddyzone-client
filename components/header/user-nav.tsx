@@ -12,9 +12,11 @@ import { useRouter } from "next/navigation";
 import { logout } from "@/features/auth/actions";
 import { toast } from "sonner";
 import { LogoutIcon } from "@/assets/icons";
+import { getQueryClient } from "@/lib/get-query-client";
 
 export const UserNav = () => {
   const router = useRouter();
+  const queryClient = getQueryClient();
   const [isOpen, setIsOpen] = useState(false);
   const { data: user, isPending: isLoading } = useQuery(currentUserOptions);
 
@@ -23,8 +25,8 @@ export const UserNav = () => {
     if (res.success) {
       toast.success(res.message);
       router.push("/login");
-      router.refresh();
       setIsOpen(false);
+      await queryClient.invalidateQueries({ queryKey: ["current-user"] });
     } else {
       toast.error(res.message);
     }

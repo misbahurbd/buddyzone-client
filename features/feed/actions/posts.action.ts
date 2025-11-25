@@ -21,6 +21,7 @@ export interface FeedPostMedia {
 }
 
 export interface FeedReaction {
+  id: string;
   reactionType: FeedReactionType;
   author: Author;
 }
