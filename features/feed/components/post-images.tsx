@@ -121,7 +121,7 @@ export const PostImages = ({ images }: { images: FeedPostMedia[] }) => {
         >
           <button
             onClick={closeLightbox}
-            className="absolute top-4 right-4 text-white hover:text-color3 transition-colors z-10"
+            className="absolute cursor-pointer top-4 right-4 text-white hover:text-color3 transition-colors z-10"
             aria-label="Close lightbox"
           >
             <X className="w-8 h-8" />
@@ -138,7 +138,7 @@ export const PostImages = ({ images }: { images: FeedPostMedia[] }) => {
                   e.stopPropagation();
                   goToPrevious();
                 }}
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-color3 transition-colors z-10 bg-black/50 rounded-full p-2 hover:bg-black/70"
+                className="absolute cursor-pointer left-4 top-1/2 -translate-y-1/2 text-white hover:text-color3 transition-colors z-10 bg-black/50 rounded-full p-2 hover:bg-black/70"
                 aria-label="Previous image"
               >
                 <ChevronLeft className="w-8 h-8" />
@@ -164,7 +164,7 @@ export const PostImages = ({ images }: { images: FeedPostMedia[] }) => {
                   e.stopPropagation();
                   goToNext();
                 }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-color3 transition-colors z-10 bg-black/50 rounded-full p-2 hover:bg-black/70"
+                className="absolute cursor-pointer right-4 top-1/2 -translate-y-1/2 text-white hover:text-color3 transition-colors z-10 bg-black/50 rounded-full p-2 hover:bg-black/70"
                 aria-label="Next image"
               >
                 <ChevronRight className="w-8 h-8" />
